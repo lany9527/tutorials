@@ -3,10 +3,12 @@ export class AboutController {
     'ngInject';
     let vm = this;
     vm.isPolitical = true;
+    vm.$state = $state;
     vm.$stateParams = $stateParams;
     vm.PoliticalNews = function () {
       vm.isPolitical = true;
       console.log("Political");
+      console.log($state.current.data.tab);
     };
     vm.EntertainmentNews = function () {
       vm.isPolitical = false;
