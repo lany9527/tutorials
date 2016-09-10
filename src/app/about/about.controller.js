@@ -1,24 +1,25 @@
 export class AboutController {
-	constructor ($state, $stateParams) {
+  constructor($scope, $state, $stateParams) {
     'ngInject';
     let vm = this;
     vm.isPolitical = true;
     vm.$state = $state;
     vm.$stateParams = $stateParams;
-    vm.PoliticalNews = function () {
+    vm.PoliticalNews = PoliticalNews;
+    vm.EntertainmentNews = EntertainmentNews;
+    vm.transition = transition;
+    function PoliticalNews() {
       vm.isPolitical = true;
       console.log("Political");
-      console.log($state.current.data.tab);
     };
-    vm.EntertainmentNews = function () {
+    function EntertainmentNews() {
       vm.isPolitical = false;
       console.log("Entertainment");
     };
-
-    vm.transition = function (tab) {
+    function transition(tab) {
       vm.$stateParams.tab = tab;
       $state.transitionTo($state.current.name, angular.extend($stateParams, {tab: tab}));
     };
-  } 
+  }
 
 }

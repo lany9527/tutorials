@@ -11,9 +11,6 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/about?:tab',
       templateUrl: 'app/about/about.html',
       controller: 'AboutController as vm',
-      data: {
-        tab: 'Local'
-      }
     })
     .state('contact', {
       url: '/contact',
