@@ -1,0 +1,56 @@
+<div class="container">
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="nav nav-tabs" ng-init="vm.$tab='Political'">
+        <li ng-class="{active:vm.$tab==='Political'}" ng-click="vm.$tab='Political'">
+          <a href="javascript:void(0)" ng-click="vm.PoliticalNews()"><i class="fa fa-check-circle-o"></i>Political news</a>
+        </li>
+        <li ng-class="{active:vm.$tab==='Entertain'}" ng-click="vm.$tab='Entertain'">
+          <a href="javascript:void(0)" ng-click="vm.EntertainmentNews()"><i class="fa fa-history"></i>Entertainment news</a>
+        </li>
+      </ul>
+    </div>
+    <!--Political news-->
+    <div ng-cloak ng-if="vm.isPolitical" class="panel-body">
+      <h1>Political news</h1>
+      <h1>Political news</h1>
+      <h1>Political news</h1>
+    </div>
+    <!--entertainment news-->
+    <div ng-cloak ng-if="!vm.isPolitical" class="panel-body">
+      <h1>Entertainment news</h1>
+      <h1>Entertainment news</h1>
+      <h1>Entertainment news</h1>
+    </div>
+  </div>
+  <hr>
+  <hr>
+  <hr>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="nav nav-tabs" ng-init="vm.$stateParams.tab==='Local'">
+        <li ng-class="{active:vm.$stateParams.tab==='Local'}">
+          <a href="javascript:void(0)" ng-click="vm.transition('Local')"><i class="glyphicon glyphicon-list-alt"></i>Local news</a>
+        </li>
+        <li ng-class="{active:vm.$stateParams.tab==='International'}">
+          <a href="javascript:void(0)" ng-click="vm.transition('International')"><i class="glyphicon glyphicon-road"></i>International news</a>
+        </li>
+      </ul>
+    </div>
+    <!--Local news-->
+    <div ng-cloak ng-if="vm.$stateParams.tab==='Local'" class="panel-body">
+      <h1> local news</h1>
+      <h1> local news</h1>
+      <h1> local news</h1>
+    </div>
+    <!--International news-->
+    <div ng-cloak ng-if="vm.$stateParams.tab==='International'" class="panel-body">
+      <h1> international news </h1>
+      <h1> international news </h1>
+      <h1> international news </h1>
+    </div>
+  </div>
+</div>
