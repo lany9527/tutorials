@@ -3,10 +3,15 @@
 </div>
 <div class="panel panel-default">
   <div class="panel-body">
-    <ul class="list-group">
-      <li class="list-group-item"><a href="#">aaa</a></li>
-      <li class="list-group-item"><a href="#">aaa</a></li>
-      <li class="list-group-item"><a href="#">aaa</a></li>
+    <!--<pre>{{vm.peopleList | json}}</pre>-->
+    <ul class="list-group" ng-repeat="person in vm.peopleList">
+      <li class="list-group-item"><a ui-serf="person({personId: person.id})">{{person.name}}</a></li>
     </ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <person-detail></person-detail>
   </div>
 </div>

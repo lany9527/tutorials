@@ -12,6 +12,7 @@ import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service'
 import { PeopleService } from '../app/components/people/people.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
+import PersonDetailComponent  from '../app/components/person-detail/person-detail.component';
 
 angular.module('tutorials', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr'])
   .constant('malarkey', malarkey)
@@ -28,4 +29,5 @@ angular.module('tutorials', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 
   .controller('PeopleController', PeopleController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
+  .component('personDetail', PersonDetailComponent)
 ;
