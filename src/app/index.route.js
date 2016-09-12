@@ -17,6 +17,11 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/contact/contact.html',
       controller: 'ContactController as vm', 
     })
+    .state('people', {
+      url: '/people',
+      templateUrl: 'app/people/people.html',
+      controller: 'PeopleController as vm',
+    })
     ;
 
   $urlRouterProvider.otherwise('/');
