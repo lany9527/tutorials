@@ -1,7 +1,7 @@
 <div>
-  <form name="JCBFilterForm" ng-cloak ng-if="$ctrl.filter" class="form-inline form-search" >
+  <form name="JCBFilterForm" ng-cloak ng-if="$ctrl.filter=='true'" class="form-inline form-search" >
     <div class="form-group">
-      <select class="form-control>
+      <select class="form-control">
         <option value="">全部类型</option>
         <option value="recharge">充值</option>
         <option value="trans">转账</option>
@@ -27,6 +27,7 @@
     <th>Company</th>
     <th>Email</th>
     <th>Address</th>
+    <th ng-if="$ctrl.operation=='true'">Operation</th>
   </tr>
   </thead>
   <tbody>
@@ -37,13 +38,26 @@
     <td data-label="Company">{{d.company}}</td>
     <td data-label="Email">{{d.email}}</td>
     <td data-label="Address">{{d.address}}</td>
+    <td data-label="Operation" ng-if="$ctrl.operation=='true'">
+      <button type="submit" class="btn btn-success">Add</button>
+    </td>
   </tr>
   </tbody>
 </table>
 
 
-  <div ng-clock ng-if="$ctrl.pagination">
-    <h2>翻页部分</h2>
+  <div ng-clock ng-if="$ctrl.pagination=='true'">
+    <nav>
+      <ul class="pagination">
+        <li><a href="javascript: void 0">&laquo;</a></li>
+        <li class="active"><a href="javascript: void 0">1</a></li>
+        <li><a href="javascript: void 0">2</a></li>
+        <li><a href="javascript: void 0">3</a></li>
+        <li><a href="javascript: void 0">4</a></li>
+        <li><a href="javascript: void 0">5</a></li>
+        <li><a href="javascript: void 0">&raquo;</a></li>
+      </ul>
+    </nav>
   </div>
 </div>
 

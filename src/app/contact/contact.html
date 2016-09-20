@@ -4,10 +4,49 @@
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
 
-  <div class="jumbotron text-center">
-	<!-- <h1>contact</h1> -->
-	<b
-	 data-filter="true"
-	 data-pagination="true"
-	 ></b>
+  <div class="row">
+    <!-- <h1>contact</h1> -->
+    <b
+      data-filter="true"
+      data-pagination="true"
+      data-operation="true"
+    ></b>
+  </div>
+  <div class="row">
+    <h3>
+      Angular 单项数据绑定实例
+    </h3>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <h4>父组件</h4>
+      <table class="table table-hover table-responsive">
+        <thead>
+        <tr class="success">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="font-size: 12px;">
+          <td data-label="ID">{{vm.parentPrimitive}}</td>
+          <td data-label="Name">{{vm.someObject.name}}</td>
+          <td data-label="Age">{{vm.someObject.age}}</td>
+          <td data-label="Address">{{vm.someObject.location}}</td>
+          <td data-label="Operation">
+            <button type="button" class="btn btn-success" ng-click="vm.updateValues();">Change Parent Val</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <a-component
+        obj="vm.someObject"
+        prim="vm.parentPrimitive"
+        data-operation="true"
+      ></a-component>
+    </div>
+  </div>
 </div>

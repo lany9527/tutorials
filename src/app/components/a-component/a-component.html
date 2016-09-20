@@ -1,1 +1,28 @@
-<h1>A component</h1>
+<div class="section">
+  <h4>
+    独立子组件（Isolate Component）
+  </h4>
+  <table class="table table-hover table-responsive">
+    <thead>
+    <tr class="success">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Operation</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr style="font-size: 12px;">
+      <td data-label="ID">{{$ctrl.prim}}</td>
+      <td data-label="Name">{{$ctrl.obj.name}}</td>
+      <td data-label="Age">{{$ctrl.obj.age}}</td>
+      <td data-label="Address">{{$ctrl.obj.location}}</td>
+      <td data-label="Operation">
+        <button type="button" class="btn btn-success" ng-click="$ctrl.updateValues();">Change Isolate Val</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
