@@ -1,1 +1,50 @@
-<h1>B component</h1>
+<div>
+  <form name="JCBFilterForm" ng-cloak ng-if="$ctrl.filter" class="form-inline form-search" >
+    <div class="form-group">
+      <select class="form-control>
+        <option value="">全部类型</option>
+        <option value="recharge">充值</option>
+        <option value="trans">转账</option>
+        <option value="withdraw">提现</option>
+        <option value="earnOnce">手续费收入</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>日期</label>
+      <input type="date" class="form-control">
+      <label>-</label>
+      <input type="date" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-default">筛选</button>
+  </form>
+  <br>
+  <table class="table table-hover table-responsive">
+  <thead>
+  <tr class="success">
+    <th>Name</th>
+    <th>Id</th>
+    <th>Company</th>
+    <th>Email</th>
+    <th>Address</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr style="font-size: 12px;" ng-repeat="d in $ctrl.peopleData">
+    <td data-label="Name">{{d.name}}</td>
+    <td data-label="Id">{{d.id}}</td>
+    <td data-label="Company">{{d.company}}</td>
+    <td data-label="Email">{{d.email}}</td>
+    <td data-label="Address">{{d.address}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+  <div ng-clock ng-if="$ctrl.pagination">
+    <h2>翻页部分</h2>
+  </div>
+</div>
+
+ <!-- <h1>bComponent</h1> -->

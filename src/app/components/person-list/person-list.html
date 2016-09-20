@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <ul class="list-group" ng-repeat="person in $ctrl.peopleList">
+      <li class="list-group-item"><a ui-serf="person({personId: person.id})">{{person.name}}</a></li>
+    </ul>
+  </div>
+</div>

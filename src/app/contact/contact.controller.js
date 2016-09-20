@@ -8,6 +8,7 @@ export class ContactController {
     this.toastr = toastr;
 
     this.activate($timeout, webDevTec);
+    
   }
 
   activate($timeout, webDevTec) {

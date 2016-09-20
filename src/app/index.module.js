@@ -13,6 +13,9 @@ import { PeopleService } from '../app/components/people/people.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 import PersonDetailComponent  from '../app/components/person-detail/person-detail.component';
+import PersonListComponent  from '../app/components/person-list/person-list.component';
+import bComponent  from '../app/components/b-component/b-component.component';
+
 
 angular.module('tutorials', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr'])
   .constant('malarkey', malarkey)
@@ -30,4 +33,6 @@ angular.module('tutorials', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
   .component('personDetail', PersonDetailComponent)
+  .component('personList', PersonListComponent)
+  .component('b', bComponent)
 ;

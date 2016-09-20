@@ -1,17 +1,6 @@
 <div>
   <acme-navbar creation-date="main.creationDate"></acme-navbar>
 </div>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <!--<pre>{{vm.peopleList | json}}</pre>-->
-    <ul class="list-group" ng-repeat="person in vm.peopleList">
-      <li class="list-group-item"><a ui-serf="person({personId: person.id})">{{person.name}}</a></li>
-    </ul>
-  </div>
-</div>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <person-detail></person-detail>
-  </div>
-</div>
+<person-list></person-list>
+<person-detail></person-detail>
