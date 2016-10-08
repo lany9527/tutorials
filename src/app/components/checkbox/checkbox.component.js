@@ -3,10 +3,8 @@
  */
 let CheckboxComponent = {
   templateUrl: 'app/components/checkbox/checkbox.html',
-  bindings: {
-
-  },
-  controller: ['$attrs', '$http', function ($attrs, $http) {
+  bindings: {},
+  controller: ['$attrs', '$http', '_', function ($attrs, $http, _) {
     let $ctrl = this;
     $ctrl.permissions = [
       {
@@ -96,48 +94,74 @@ let CheckboxComponent = {
         ]
       }
     ];
-    console.log($ctrl.permissions)
+    /*//全选按钮
+     $ctrl.selectAllPermission = function () {
+     console.log("全选按钮");
+     var checked = !!$ctrl.permissions.$$check;
+     angular.forEach($ctrl.permissions, function (label) {
+     label.$$check = checked;
+     angular.forEach(label.options, function (opt) {
+     opt.$$check = checked;
+     });
+     });
+     };
+     //点击子选项前面父选项自动选择全部子选项
+     $ctrl.selectAll = function (d) {
+     var value = !!d.$$check;
+     var result = true;
+     angular.forEach($ctrl.permissions, function (v) {
+     if (!v.$$check) result = false;
+     });
+     $ctrl.permissions.$$check = result;
+     angular.forEach(d.options, function (opt) {
+     opt.$$check = value;
+     });
+     };
+
+     //点击每一个单独的子选项
+     $ctrl.select = function (d) {
+     var parent = true;
+     // 父级
+     angular.forEach(d.options, function (v) {
+     if(!v.$$check) parent = false;
+     });
+     d.$$check = parent;
+     var total = true;
+     // 总的
+     angular.forEach($ctrl.permissions, function (v) {
+     if(!v.$$check) total = false;
+     });
+     $ctrl.permissions.$$check = total;
+     };*/
+
     //全选按钮
-    $ctrl.selectAllPermission = function () {
-      console.log("全选按钮");
-      var checked = !!$ctrl.permissions.$$check;
-      angular.forEach($ctrl.permissions, function (label) {
+    $ctrl.selectAllPermission = ()=> {
+      let checked = !!$ctrl.permissions.$$check;
+      _.each($ctrl.permissions, (label) => {
+        console.log(label);
         label.$$check = checked;
-        angular.forEach(label.options, function (opt) {
-          opt.$$check = checked;
-        });
+        _.each(label.options, opt=>opt.$$check = checked);
       });
     };
+
     //点击子选项前面父选项自动选择全部子选项
     $ctrl.selectAll = function (d) {
-      var value = !!d.$$check;
-      var result = true;
-      angular.forEach($ctrl.permissions, function (v) {
-        if (!v.$$check) result = false;
-      });
-      $ctrl.permissions.$$check = result;
-      angular.forEach(d.options, function (opt) {
-        opt.$$check = value;
-      });
+      _.each(d.options, opt=> opt.$$check = d.$$check);
+      $ctrl.permissions.$$check = $ctrl.permissions.every(v=>v.$$check);
     };
 
     //点击每一个单独的子选项
     $ctrl.select = function (d) {
-      var parent = true;
-      // 父级
-      angular.forEach(d.options, function (v) {
-        if(!v.$$check) parent = false;
-      });
-      d.$$check = parent;
-      var total = true;
-      // 总的
-      angular.forEach($ctrl.permissions, function (v) {
-        if(!v.$$check) total = false;
-      });
-      $ctrl.permissions.$$check = total;
+      d.$$check = _.every(d.options, v=> v.$$check);
+      $ctrl.permissions.$$check = _.every($ctrl.permissions, v=>v.$$check);
     };
 
-
+    //点击单选按钮
+    $ctrl.selectRadio = function (d2, d3) {
+      d2.$$check = true;
+      console.log(d2);
+      console.log(d3);
+    }
   }]
 };
 export default CheckboxComponent;
