@@ -1,0 +1,41 @@
+<div>
+  <table class="table table-bordered mb0">
+    <tbody>
+    <tr ng-repeat="d in $ctrl.permissions">
+      <td>
+        <label class="checkbox-inline">
+          <input ng-model="d.$$check" type="checkbox" ng-checked="!!d.$$check" ng-change="$ctrl.selectAll(d)">{{d.label}}
+        </label>
+      </td>
+      <td>
+        <div class="checkbox" ng-repeat="d2 in d.options">
+          <label>
+            <input type="checkbox" ng-model="d2.$$check" ng-checked="!!d2.$$check" ng-change="$ctrl.select(d,d2)">
+            {{d2.selection}}
+          </label>
+          <span ng-if="d2.options" ng-repeat="d3 in d2.options">
+ (<label class="radio-inline">
+ <input type="radio" ng-click="$ctrl.selectRadio(d2,d3)"  ng-model="d3.$$check" ng-checked="!!d3.$$check" >{{d3.selection}}
+ </label>)
+ </span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="$ctrl.permissions.$$check" ng-checked="!!permissions.$$check"
+                 ng-change="$ctrl.selectAllPermission()"> 全选
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="dataCall.isRoot"> 超级管理员
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
